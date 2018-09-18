@@ -1,0 +1,8 @@
+fixmecore/Encrypt.class
+fixmecore/CheckSum.class
+fixmecore/Attachment.class
+fixmecore/ReadWriteHandler.class
+fixmecore/FIXController.class
+fixmecore/Connector.class
+fixmecore/FIXModel.class
+fixmecore/MessageResponse.class

@@ -11,8 +11,8 @@ import fixmecore.ReadWriteHandler;
 
 class ConnectionHandler implements
         CompletionHandler<AsynchronousSocketChannel, Attachment> {
-	private static int	marketId = 0;
-	private static int	brokerId = 0;
+	private static int	marketId = 500000;
+	private static int	brokerId = 400000;
 	
     @Override
     public void completed(AsynchronousSocketChannel client, Attachment attach) {
@@ -45,6 +45,7 @@ class ConnectionHandler implements
             newAttach.isRead = true;
 			newAttach.mainPort = attach.mainPort;
             newAttach.clientAddr = clientAddr;
+			newAttach.isBroker = attach.isBroker;
 			Clients.addClient(newAttach);
             client.read(newAttach.buffer, newAttach, rwHandler);
         } catch (IOException e) {
@@ -54,7 +55,7 @@ class ConnectionHandler implements
 
     @Override
     public void failed(Throwable e, Attachment attach) {
-        System.out.println("Failed to accept a  connection.");
+        System.out.println("Failed to accept a connection.");
         e.printStackTrace();
     }
 }
